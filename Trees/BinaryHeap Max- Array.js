@@ -32,15 +32,15 @@ class BinHeapMaxArray{
         this.heapList[0] = this.heapList[this.size-1]           // swap the root with last element
         this.heapList.pop();                                    // drop the root at the end
         this.size = this.size - 1;
-        this.percolateDown(0);                                       //percolate down to find max child
+        this.percolateDown(0);                                  //percolate down to find max child
     }
 
     percolateDown(i){
         let c = i;
-        while ( c * 2 < this.size){                         // this while only controls to reach to the middle of array
+        while ( c * 2 < this.size-1){                         // this while only controls to reach to the middle of array (at least 1 child)
             let maxChild = this.__maxChild(c);              
             //console.log(c + ' ' + maxChild)
-            if(this.heapList[maxChild] > this.heapList[c]){ // checks if child is max and swap 
+            if(this.heapList[maxChild] > this.heapList[c]){   // checks if child is max and swap 
                 const tmp = this.heapList[c];
                 this.heapList[c] = this.heapList[maxChild];
                 this.heapList[maxChild] = tmp;
@@ -51,11 +51,11 @@ class BinHeapMaxArray{
     }
 
     __maxChild(i){
-        if (i*2 + 2 > this.size){                   // control to prevent error if not children (not needed in Javascript)
-            return i*2;
+        if (i*2 + 2 > this.size-1){                   // control to prevent error if no right (not needed in Javascript)
+            return i * 2 + 1;                         // if no right, return left
         }
         else{
-            if (this.heapList[i*2+1] > this.heapList[i*2+2]){ // equivalent of compare left or right
+            if (this.heapList[i*2+1] > this.heapList[i*2+2]){ // equivalent of compare who is max, left or right?
                 return i * 2 + 1;                             // return left
             }
             else{
