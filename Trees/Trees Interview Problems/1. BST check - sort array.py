@@ -12,7 +12,7 @@ tree.left.right.left = Node(6)
 tree.left.right.right = Node(9)
 tree.right = Node(30)
 tree.right.left = Node(20)
-tree.right.left.left = Node(21)
+tree.right.left.left = Node(21)     #invalid
 tree.right.left.right = Node(22)
 
 #               10
