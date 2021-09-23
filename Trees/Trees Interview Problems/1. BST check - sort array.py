@@ -20,17 +20,16 @@ tree.right.left.right = Node(22)
 #   1       8         20
 #         6   9     15  22  
 
-tree_vals = []
-def TraverseInOrder(tree):
+tree_vals = []                              #O(n) space
+def TraverseInOrder(tree):                  #O(n) time
     if tree != None:
         TraverseInOrder(tree.left)          # traverse to the most left bottom level
-        #print(tree.value)                  
         tree_vals.append(tree.value)        # append to array most left, then parent, then right...
         TraverseInOrder(tree.right)
         
 def sort_check(tree_vals):
     print(tree_vals)                        # a BST traverse must be sorted to be valid
-    return tree_vals == sorted(tree_vals)
+    return tree_vals == sorted(tree_vals)   # O(n logn) time
 
 TraverseInOrder(tree)
 print(sort_check(tree_vals))
