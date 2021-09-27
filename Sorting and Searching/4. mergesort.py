@@ -6,9 +6,9 @@ def merge_sort(arr):
     arr1 = merge_sort(arr[:len(arr)//2])                    # split array 1st half (recursive)
     arr2 = merge_sort(arr[len(arr)//2:])                    # split array 2nd half (recursive)
 
-    if len(arr1)==1 and len(arr2)==1 and arr2[0]<arr1[0]:   # checks last 2 elements and return swap
-        return arr2 + arr1
-    elif arr2[0]>arr1[0]:
+    if len(arr1)==1 and len(arr2)==1:
+        if arr2[0]<arr1[0]:                                 # checks last 2 elements and return swap
+            return arr2 + arr1
         return arr                                          # if correct order return 2 elements as is
     else:
         temp = []
