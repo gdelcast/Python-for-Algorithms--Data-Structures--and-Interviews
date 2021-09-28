@@ -19,8 +19,8 @@ function merge_sort(arr){
                 temp.push(arr1.shift());
             }
         }
-        //return [...arr, ...arr1, ...arr2]; //SAME
-        return temp.concat(arr1.concat(arr2));
+        return [...temp, ...arr1, ...arr2]; //SAME
+        //return temp.concat(arr1.concat(arr2));
     }
 }
 
