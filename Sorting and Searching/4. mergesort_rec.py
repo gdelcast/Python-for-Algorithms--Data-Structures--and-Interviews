@@ -5,25 +5,15 @@ def merge_sort(num):
     n = len(num)//2
     left = merge_sort(num[:n])
     right = merge_sort(num[n:])
-    return merge(left, right)
 
-def merge(left, right):
-    if not left or not right : return
-    
-    out = []
-    l = r = 0
-    
-    while l < len(left) and r < len(right):
-        if left[l] < right[r]:
-            out.append(left[l])
-            l +=1
+    out =[]
+    while left and right:
+        if left[0] < right[0]:
+            out.append(left.pop(0))
         else:
-            out.append(right[r])
-            r +=1
+            out.append(right.pop(0))
     
-    out += left[l:]
-    out += right[r:]
-    return out
+    return out + left + right
 
     
             
