@@ -14,11 +14,9 @@ def merge_sort(arr):
         temp = []
         while arr1 and arr2:                                # received 2 sorted arrays, parse 1st ele of each and add to temp
             if arr1[0]<arr2[0]:
-                temp.append(arr1[0])
-                del arr1[0]
+                temp.append(arr1.pop(0))
             else:
-                temp.append(arr2[0])
-                del arr2[0]
+                temp.append(arr2.pop(0))
         return temp + arr1 + arr2                           # return temp + remaining elements in arr1 and arr2
                                                             # (if sorted 1 of the arrays will have several ele after comparison)
 
